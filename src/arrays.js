@@ -4,41 +4,71 @@
 //   => [11, 12, 13]
 function greaterThanTen(numbers) {
   let newNum = []
-  for (i = 0; i < numbers.length; i++){
+  for (let i = 0; i < numbers.length; i++){
     if(numbers[i] > 10){
       newNum.push(numbers[i])
 
     }
-    
-  
   }return newNum
   
 }
+//console.log(greaterThanTen([1, 2, 3, 11, 12, 13]))
 
 // Given an array of strings, return all words that start with 'b' or 'B'.
 // Ex.:
 //   bWords(['banana', 'orange', 'apple', 'Bonobo', 'kiwi', 'pear']);
 //   => ['banana', 'Bonobo]
-function bWords(words) {}
+function bWords(words) {
+  let result =[]
+
+  for (let i = 0; i < words.length; i++){
+    let word = words[i]
+
+    if (word[0] === 'b'){
+      result.push(word);
+    }else if(word[0] === 'B'){
+      result.push(word)
+    }
+  } return result
+
+}
+//console.log(bWords(['banana', 'orange', 'apple', 'Bonobo', 'kiwi', 'pear']))
 
 // Add all the elements from additionalItems to the end of originalArray.
 // Return the originalArray..
 // Ex.:
 //  extend([1, 2, 3], [4, 5, 6]);
 //  => [1, 2, 3, 4, 5, 6]
-function extend(originalArray, additionalItems) {}
+function extend(originalArray, additionalItems) {
+ 
+  return originalArray.concat(additionalItems)
+}
+//console.log(extend([1, 2, 3], [4, 5, 6]))
 
 // Return an array of all items with the given length.
 // Ex.:
 //   itemsWithLength(['a', 'bbb', 'cccc', 'dddddd', 'eee'], 3);
 //   => ['bbb', 'eee']
-function itemsWithLength(items, length) {}
+function itemsWithLength(items, length) {
+  let tokens = items.filter(item => item.length ===length)
+
+return tokens
+
+}
+//console.log(itemsWithLength(['a', 'bbb', 'cccc', 'dddddd', 'eee'], 3))
 
 // Return an array with every other element from the input array (start with index 0).
 // Ex.:
 //   everyOtherItem(['a', 'b', 'c', 'd', 'e']);
 //   => ['a', 'c', 'e']
-function everyOtherItem(items) {}
+function everyOtherItem(items) {
+let result = []
+for(let i =0; i<items.length; i+=2){
+   result.push(items[i])
+}return result
+
+}
+//console.log(everyOtherItem(['a', 'b', 'c', 'd', 'e']))
 
 // Given a list of words and a letter, return the indexes of the words that
 // start with that letter. You can assume that the words and letter will always

@@ -37,19 +37,19 @@ if (Math.round(x) == Math.round(y)){
 //   => 'John Doe'
 function fullName(firstName, lastName) {
   //First name to capital
-  let firstLetter = firstName[0]
-    firstLetter = firstLetter.toUpperCase()
-  let otherLetters = firstName.slice(1);
-    otherLetters = otherLetters.toLowerCase()
-  firstName = firstLetter + otherLetters
-// last name to capital
-  let lFirstLetter = lastName[0]
-    lFirstLetter = lFirstLetter.toUpperCase()
-  let lOtherLetters = lastName.slice(1);
-    lOtherLetters = lOtherLetters.toLowerCase()
-  lastName = lFirstLetter + lOtherLetters
+//   let firstLetter = firstName[0]
+//     firstLetter = firstLetter.toUpperCase()
+//   let otherLetters = firstName.slice(1);
+//     otherLetters = otherLetters.toLowerCase()
+//   firstName = firstLetter + otherLetters
+// // last name to capital
+//   let lFirstLetter = lastName[0]
+//     lFirstLetter = lFirstLetter.toUpperCase()
+//   let lOtherLetters = lastName.slice(1);
+//     lOtherLetters = lOtherLetters.toLowerCase()
+//   lastName = lFirstLetter + lOtherLetters
   //combine name with a space
-  return `${firstName} ${lCapName}`
+  return `${firstName} ${lastName}`
 }
 
 // Generate the sentence "PERSON was drinking BEVERAGE at LOCATION" using the
@@ -58,10 +58,12 @@ function fullName(firstName, lastName) {
 //   generateSentence('Kay', 'coffee', 'the local cafe');
 //   => 'Kay was drinking coffee at the local cafe.'
 function generateSentence(person, beverage, location) {
+// person= "Kay"
+// beverage = "coffee"
+// location = "the local cafe"
+  return `${person} was drinking ${beverage} at ${location}.`
 
-  return `${person} was drinking ${beverage} at ${location}`
-
-}
+}console.log(generateSentence("Kay","coffee","the local cafe"))
 
 // Return the given string with all vowels replaced with '*' characters.
 // Ex.:
@@ -78,18 +80,14 @@ function censorVowels(string) {
 //   stickyCase('hello world');
 //   => 'hElLo wOrLd'
 function stickyCase(string) {
-  let splitStr= string.split(' ')
-  let newArr = []
+  let capCase = ''
 
-
-  for (i=0; i < splitStr.length; i += 2){
-    let letters = splitStr[i].split("");
-    for (j = 0; j < letters.length; j ++){
-      if (letters.indexOf(letters[j]) % 2 === 1){
-        letters[j] = letters[j].toUpperCase()
-      }
-  }newArr.push(letters.join(''))
-}return newArr
+  for (let i = 0; i< string.length; i++)
+   if (i % 2 ===1){
+    capCase += string[i].toUpperCase()
+   }else{
+    capCase += string[i]
+   }return capCase
 } // this one was really rough...
 
 // Return the given string in leetspeak. Leetspeak is a modified version of
@@ -104,7 +102,26 @@ function stickyCase(string) {
 // Ex.:
 //   leetspeak('javascript');
 //   => 'j4v45cr1p7'
-function leetspeak(string) {}
+function leetspeak(string) {
+    const characters = {
+
+  'a': '4',
+  'e': '3',
+  'i': '1',
+  'o': '0',
+  's': '5',
+  't': '7',
+};
+let result = '';
+for (let i = 0; i < string.length; i++) {
+  const char = string[i].toLowerCase(); 
+  if (characters[char]) {
+    result += characters[char];
+  } else {
+   result += string[i];
+  }
+} return result;
+}
 
 export {
   approximatelyEqual,
