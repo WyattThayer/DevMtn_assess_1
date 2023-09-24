@@ -80,11 +80,12 @@ function censorVowels(string) {
 //   stickyCase('hello world');
 //   => 'hElLo wOrLd'
 function stickyCase(string) {
+  return Array.from(string).map((ltr, i) => i % 2 == 0 ? ltr : ltr.toUpperCase()).join('')
   let capCase = ''
 
   for (let i = 0; i< string.length; i++)
    if (i % 2 ===1){
-    capCase += string[i].toUpperCase()
+      capCase += string[i].toUpperCase()
    }else{
     capCase += string[i]
    }return capCase
